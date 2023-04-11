@@ -20,15 +20,15 @@ Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fieca
 
 ## Obiecte/Clase
 
-- Carte
+* Carte
   - Carte_Adulti
   - Carte_Adolescenti
   - Carte_Copii
--Angajat
+* Angajat
   -Bibliotecar
   -Paznic
--Cititor
--Clase tip Enum ( Tip_Coperta, Tura)
--Biblioteca
--Main
+* Cititor
+- Clase tip Enum ( Tip_Coperta, Tura)
+- Biblioteca
+- Main
 
