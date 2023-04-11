@@ -2,7 +2,7 @@
 
 Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fiecare continand angajati, carti si cititori. Toate actiunile si tipurile de obiecte pot fi observate si testate in main.
 
-##Actiuni/Interogari
+## Actiuni/Interogari
 
 - add_carte
 - remove_carte
@@ -18,15 +18,15 @@ Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fieca
 - imprumuta_carte
 - inapoiere_carte
 
-##Obiecte/Clase
+## Obiecte/Clase
 
 - Carte
--- Carte_Adulti
--- Carte_Adolescenti
--- Carte_Copii
+  - Carte_Adulti
+  - Carte_Adolescenti
+  - Carte_Copii
 -Angajat
---Bibliotecar
---Paznic
+  -Bibliotecar
+  -Paznic
 -Cititor
 -Clase tip Enum ( Tip_Coperta, Tura)
 -Biblioteca
