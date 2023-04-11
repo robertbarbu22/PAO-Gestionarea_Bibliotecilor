@@ -25,8 +25,8 @@ Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fieca
   - Carte_Adolescenti
   - Carte_Copii
 * Angajat
-  -Bibliotecar
-  -Paznic
+  - Bibliotecar
+  - Paznic
 * Cititor
 - Clase tip Enum ( Tip_Coperta, Tura)
 - Biblioteca
