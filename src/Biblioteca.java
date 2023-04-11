@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import Carti.Carte;
 import Persoane.Angajat;
 import Persoane.Cititor;
+
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.SortedSet;
 import Utile.Tip_Coperta;
 import Persoane.Bibliotecar;
@@ -146,6 +149,40 @@ public class Biblioteca {
 
     }
 
+    public void schimb_de_tura(Paznic paznic, Paznic paznic2){
+        Tura tura = paznic.getTura();
+        paznic.setTura(paznic2.getTura());
+        paznic2.setTura(tura);
+
+        System.out.println("Paznicul " + paznic.getNume() + " " + paznic.getPrenume() + " are tura " + paznic.getTura() + ", iar paznicul " + paznic2.getNume() + " " + paznic2.getPrenume() + " are tura " + paznic2.getTura());
+    }
+
+    public void top_3_cititori(){
+        Collections.sort(cititori, new Comparator<Cititor>() {
+            @Override
+            public int compare(Cititor o1, Cititor o2) {
+                return o2.getNr_imprumuturi() - o1.getNr_imprumuturi();
+            }
+        });
+
+        System.out.println("Top 3 cititori: ");
+        for (int i = 0; i < 3; i++) {
+            System.out.println( cititori.get(i).getNume() + " " + cititori.get(i).getPrenume() + "/ Numar imprumuturi: " + cititori.get(i).getNr_imprumuturi());
+        }
+    }
+
+
+    public void angajatul_cu_cea_mai_mare_vechime(){
+        Collections.sort(angajati, new Comparator<Angajat>() {
+            @Override
+            public int compare(Angajat o1, Angajat o2) {
+                return o2.getAni_vechime() - o1.getAni_vechime();
+            }
+        });
+
+        System.out.println("Angajatul cu cea mai mare vechime este: ");
+        System.out.println( angajati.get(0).getNume() + " " + angajati.get(0).getPrenume() + "/ Ani vechime: " + angajati.get(0).getAni_vechime());
+    }
 
 
 }

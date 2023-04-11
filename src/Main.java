@@ -25,13 +25,13 @@ public class Main {
         Angajat angajat2 = new Bibliotecar("Ionescu", "Maria", 25, 3, true, false);
         biblioteca1.add_angajat(angajat2);
 
-        Angajat angajat3 = new Paznic ("Iftimi", "Andrei", 40, 5, Tura.PRIMA);
+        Paznic angajat3 = new Paznic ("Iftimi", "Andrei", 40, 5, Tura.PRIMA);
         biblioteca1.add_angajat(angajat3);
 
-        Angajat angajat4 = new Paznic ("Ionescu", "Rares", 35, 4, Tura.A_DOUA);
+        Paznic angajat4 = new Paznic ("Ionescu", "Rares", 35, 4, Tura.A_DOUA);
         biblioteca1.add_angajat(angajat4);
 
-        Angajat angajat5 = new Paznic ("Berbecaru", "Radu", 30, 3, Tura.A_TREIA);
+        Paznic angajat5 = new Paznic ("Berbecaru", "Radu", 30, 3, Tura.A_TREIA);
         biblioteca1.add_angajat(angajat5);
 
 
@@ -45,10 +45,18 @@ public class Main {
 
         System.out.println(" ");
 
+        biblioteca1.schimb_de_tura(angajat3, angajat4);
+
+        System.out.println(" ");
+
         biblioteca1.calculeaza_salariu_angajat(angajat2);
         biblioteca1.calculeaza_salariu_angajat(angajat3);
         biblioteca1.calculeaza_salariu_angajat(angajat4);
         biblioteca1.calculeaza_salariu_angajat(angajat5);
+
+        System.out.println(" ");
+
+        biblioteca1.angajatul_cu_cea_mai_mare_vechime();
 
         System.out.println(" ");
 
@@ -118,6 +126,10 @@ public class Main {
 
         biblioteca1.inapoiere_carte(cititor1, carte2);
 
+        System.out.println(" ");
 
+        biblioteca1.add_cititor(cititor4);
+
+        biblioteca1.top_3_cititori();
     }
 }
