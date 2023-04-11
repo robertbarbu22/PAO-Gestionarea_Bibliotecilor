@@ -1,7 +1,7 @@
 package Carti;
 
 import Utile.Tip_Coperta;
-public abstract class Carte {
+public abstract class Carte implements Comparable<Carte>{
 
     protected int id;
     protected String titlu;
@@ -75,6 +75,16 @@ public abstract class Carte {
 
     public void setE_imprumutata(Boolean e_imprumuata) {
         this.e_imprumutata = e_imprumuata;
+    }
+
+    @Override
+
+    public int compareTo(Carte o) {
+        int result = this.titlu.compareTo(o.titlu);
+        if (result == 0) {
+            result = this.autor.compareTo(o.autor);
+        }
+        return result;
     }
 
 

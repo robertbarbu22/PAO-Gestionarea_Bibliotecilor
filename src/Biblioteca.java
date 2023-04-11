@@ -13,11 +13,11 @@ public class Biblioteca {
 
     private String nume;
     private String adresa;
-    private ArrayList<Carte> carti;
+    private SortedSet<Carte> carti;
     private ArrayList<Cititor> cititori;
-    private SortedSet<Angajat> angajati;
+    private ArrayList<Angajat> angajati;
 
-    public Biblioteca(String nume, String adresa, ArrayList<Carte> carti, ArrayList<Cititor> cititori, SortedSet<Angajat> angajati) {
+    public Biblioteca(String nume, String adresa, SortedSet<Carte> carti, ArrayList<Cititor> cititori, ArrayList<Angajat> angajati) {
         this.nume = nume;
         this.adresa = adresa;
         this.carti = carti;

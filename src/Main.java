@@ -17,7 +17,7 @@ import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
 
-        Biblioteca biblioteca1 = new Biblioteca("Biblioteca Matei Basarab ", "Bucuresti, Strada Izvoarelor, numarul 4", new ArrayList<>(), new ArrayList<>(), new TreeSet<>());
+        Biblioteca biblioteca1 = new Biblioteca("Biblioteca Matei Basarab ", "Bucuresti, Strada Izvoarelor, numarul 4", new TreeSet<>(), new ArrayList<>(), new ArrayList<>());
 
         Angajat angajat1 = new Bibliotecar ("Popescu", "Ion", 30, 4, true, true);
         biblioteca1.add_angajat(angajat1);
@@ -56,11 +56,13 @@ public class Main {
         Carte carte2 = new Carte_Adolescenti(101, "Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
         Carte carte3 = new Carte_Copii(102, "Invatam Abecedarul", "Maria Popescu", Tip_Coperta.NORMALA, 30, 2000, false, "5-7 ani", false);
         Carte carte4 = new Carte_Copii(103, "Invatam sa coloram", "Maria Popescu", Tip_Coperta.NORMALA, 20, 2014, false, "2-5 ani", true);
+        Carte carte5 = new Carte_Adolescenti(104, "Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
 
         biblioteca1.add_carte(carte1);
         biblioteca1.add_carte(carte2);
         biblioteca1.add_carte(carte3);
         biblioteca1.add_carte(carte4);
+        biblioteca1.add_carte(carte5);
 
         biblioteca1.afiseaza_carti();
 

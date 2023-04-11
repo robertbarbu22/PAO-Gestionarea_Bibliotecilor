@@ -1,6 +1,6 @@
 package Persoane;
 
-public abstract class Angajat implements Comparable<Angajat> {
+public abstract class Angajat {
 
     protected String nume;
     protected String prenume;
@@ -48,15 +48,5 @@ public abstract class Angajat implements Comparable<Angajat> {
     }
 
 
-    @Override
-
-    public int compareTo(Angajat a){
-        int result = this.nume.compareTo(a.nume);
-        if(result == 0){
-            result = this.prenume.compareTo(a.prenume);
-            }
-
-        return result;
-    }
 
 }
