@@ -17,6 +17,9 @@ Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fieca
 - afiseaza_cititori (afiseaza toti cititorii inscrisi la biblioteca)
 - imprumuta_carte (ajuta la evidenta cartilor pentru a nu mai fi imprumutate, dar si la evidenta cititorului pentru a nu mai putea imprumuta pana nu returneaza)
 - inapoiere_carte (ajuta la evidenta cartilor pentru a putea fi imprumutate, dar si la evidenta cui a returnat pentru a mai putea imprumuta)
+- schimba_de_tura (schimba turele a doi paznici)
+- top_3_cititori (afiseaza primii 3 cititori ca si carti imprumutate)
+- angajatul_cu_cea_mai_mare_vechime (returneaza angajatul care lucreaza de cel mai mult timp la biblioteca)
 
 ## Obiecte/Clase
 
