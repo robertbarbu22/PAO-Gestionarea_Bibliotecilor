@@ -1,8 +1,8 @@
-package Persoane;
+package Models;
 
-import Utile.Tura;
+import Constants.Tura;
 
-public class Paznic extends Angajat{
+public class Paznic extends Angajat {
 
     private Tura tura;
 

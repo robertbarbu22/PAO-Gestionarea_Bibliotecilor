@@ -1,13 +1,13 @@
-package Carti;
+package Models;
 
-import Utile.Tip_Coperta;
+import Constants.Tip_Coperta;
 
-public class Carte_Copii extends Carte{
+public class Carte_Copii extends Carte {
     private String varsta_recomandata;
     private Boolean de_colorat;
 
-    public Carte_Copii(int id, String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, String varsta_recomandata, Boolean de_colorat) {
-        super(id, titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
+    public Carte_Copii( String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, String varsta_recomandata, Boolean de_colorat) {
+        super( titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
         this.varsta_recomandata = varsta_recomandata;
         this.de_colorat = de_colorat;
     }

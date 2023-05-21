@@ -1,13 +1,14 @@
-package Carti;
+package Models;
 
-import Utile.Tip_Coperta;
+import Constants.Tip_Coperta;
+
 public class Carte_Adulti extends Carte {
 
     private String gen;
     private Boolean are_restictie_de_varsta;
 
-    public Carte_Adulti( int id, String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, String gen, Boolean are_restictie_de_varsta) {
-        super(id, titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
+    public Carte_Adulti(  String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, String gen, Boolean are_restictie_de_varsta) {
+        super( titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
         this.gen = gen;
         this.are_restictie_de_varsta = are_restictie_de_varsta;
     }

@@ -1,4 +1,4 @@
-package Persoane;
+package Models;
 
 public abstract class Angajat {
 

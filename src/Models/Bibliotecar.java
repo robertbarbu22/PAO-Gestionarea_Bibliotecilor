@@ -1,6 +1,8 @@
-package Persoane;
+package Models;
 
-public class Bibliotecar extends Angajat{
+import Models.Angajat;
+
+public class Bibliotecar extends Angajat {
 
     private Boolean calificare_in_domeniu;
     private Boolean calificare_office;

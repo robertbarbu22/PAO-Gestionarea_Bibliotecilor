@@ -1,23 +1,18 @@
 import java.util.ArrayList;
-import java.util.SortedSet;
 
-import Carti.Carte_Adolescenti;
-import Carti.Carte_Adulti;
-import Carti.Carte_Copii;
-import Persoane.Angajat;
-import Persoane.Cititor;
-import Utile.Tip_Coperta;
-import Persoane.Bibliotecar;
-import Persoane.Paznic;
-import Utile.Tura;
-import Carti.Carte;
+import Models.*;
+import Constants.Tip_Coperta;
+import Constants.Tura;
+import Service.ServiceAngajatCSV;
+import Service.ServiceCarteCSV;
+
 import java.util.TreeSet;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        Biblioteca biblioteca1 = new Biblioteca("Biblioteca Matei Basarab ", "Bucuresti, Strada Izvoarelor, numarul 4", new TreeSet<>(), new ArrayList<>(), new ArrayList<>());
+        Biblioteca biblioteca1 = new Biblioteca("Models.Biblioteca Matei Basarab ", "Bucuresti, Strada Izvoarelor, numarul 4", new TreeSet<>(), new ArrayList<>(), new ArrayList<>());
 
         Angajat angajat1 = new Bibliotecar ("Popescu", "Ion", 30, 4, true, true);
         biblioteca1.add_angajat(angajat1);
@@ -60,11 +55,11 @@ public class Main {
 
         System.out.println(" ");
 
-        Carte carte1 = new Carte_Adulti(100, "Eat, pray, love", "Elizabeth Gilbert", Tip_Coperta.DURA, 500, 2005, true, "Dragoste", false);
-        Carte carte2 = new Carte_Adolescenti(101, "Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
-        Carte carte3 = new Carte_Copii(102, "Invatam Abecedarul", "Maria Popescu", Tip_Coperta.NORMALA, 30, 2000, false, "5-7 ani", false);
-        Carte carte4 = new Carte_Copii(103, "Invatam sa coloram", "Maria Popescu", Tip_Coperta.NORMALA, 20, 2014, false, "2-5 ani", true);
-        Carte carte5 = new Carte_Adolescenti(104, "Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
+        Carte carte1 = new Carte_Adulti( "Eat, pray, love", "Elizabeth Gilbert", Tip_Coperta.DURA, 500, 2005, true, "Dragoste", false);
+        Carte carte2 = new Carte_Adolescenti( "Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
+        Carte carte3 = new Carte_Copii( "Invatam Abecedarul", "Maria Popescu", Tip_Coperta.NORMALA, 30, 2000, false, "5-7 ani", false);
+        Carte carte4 = new Carte_Copii( "Invatam sa coloram", "Maria Popescu", Tip_Coperta.NORMALA, 20, 2014, false, "2-5 ani", true);
+        Carte carte5 = new Carte_Adolescenti("Twilight", "Stephenie Meyer", Tip_Coperta.CARTONATA, 300, 2005, false, true, true, true, true);
 
         biblioteca1.add_carte(carte1);
         biblioteca1.add_carte(carte2);
@@ -131,5 +126,11 @@ public class Main {
         biblioteca1.add_cititor(cititor4);
 
         biblioteca1.top_3_cititori();
+
+        ServiceCarteCSV.getInstance().writeToFile();
+
+        ServiceAngajatCSV.getInstance().writeToFile();
     }
+
+
 }

@@ -1,15 +1,17 @@
+package Models;
+
 import java.util.ArrayList;
-import Carti.Carte;
-import Persoane.Angajat;
-import Persoane.Cititor;
+import Models.Carte;
+import Models.Angajat;
+import Models.Cititor;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.SortedSet;
-import Utile.Tip_Coperta;
-import Persoane.Bibliotecar;
-import Persoane.Paznic;
-import Utile.Tura;
+import Constants.Tip_Coperta;
+import Models.Bibliotecar;
+import Models.Paznic;
+import Constants.Tura;
 
 
 public class Biblioteca {
@@ -18,7 +20,47 @@ public class Biblioteca {
     private String adresa;
     private SortedSet<Carte> carti;
     private ArrayList<Cititor> cititori;
-    private ArrayList<Angajat> angajati;
+    private static ArrayList<Angajat> angajati;
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public SortedSet<Carte> getCarti() {
+        return carti;
+    }
+
+    public void setCarti(SortedSet<Carte> carti) {
+        this.carti = carti;
+    }
+
+    public ArrayList<Cititor> getCititori() {
+        return cititori;
+    }
+
+    public void setCititori(ArrayList<Cititor> cititori) {
+        this.cititori = cititori;
+    }
+
+    public static ArrayList<Angajat> getAngajati() {
+        return angajati;
+    }
+
+    public void setAngajati(ArrayList<Angajat> angajati) {
+        this.angajati = angajati;
+    }
 
     public Biblioteca(String nume, String adresa, SortedSet<Carte> carti, ArrayList<Cititor> cititori, ArrayList<Angajat> angajati) {
         this.nume = nume;
@@ -48,16 +90,25 @@ public class Biblioteca {
     }
 
     public void cost_inlocuire_carte(Carte carte){
-        int cost = 0;
-        cost = carte.getNr_Pagini() / 15;
-        if( carte.getTip_Coperta() == Tip_Coperta.DURA)
-            cost += 10;
-        else if( carte.getTip_Coperta() == Tip_Coperta.NORMALA)
-            cost += 3;
-        else if( carte.getTip_Coperta() == Tip_Coperta.CARTONATA)
-            cost += 7;
+        int ok = 0;
+        for (Carte carte1 : carti) {
+            if(carte1.getTitlu().equals(carte.getTitlu()) && carte1.getAutor().equals(carte.getAutor()) && carte1.getNr_Pagini() == carte.getNr_Pagini() && carte1.getTip_Coperta() == carte.getTip_Coperta()){
+                ok = 1;
+                int cost = 0;
+                cost = carte.getNr_Pagini() / 15;
+                if( carte.getTip_Coperta() == Tip_Coperta.DURA)
+                    cost += 10;
+                else if( carte.getTip_Coperta() == Tip_Coperta.NORMALA)
+                    cost += 3;
+                else if( carte.getTip_Coperta() == Tip_Coperta.CARTONATA)
+                    cost += 7;
 
-        System.out.println("Costul inlocuirii cartii este: " + cost);
+                System.out.println("Costul inlocuirii cartii este: " + cost);
+            }
+            if (ok == 0)
+                System.out.println("Cartea nu exista in biblioteca!");
+        }
+
     }
 
     public void add_angajat(Angajat angajat){
@@ -182,6 +233,15 @@ public class Biblioteca {
 
         System.out.println("Angajatul cu cea mai mare vechime este: ");
         System.out.println( angajati.get(0).getNume() + " " + angajati.get(0).getPrenume() + "/ Ani vechime: " + angajati.get(0).getAni_vechime());
+    }
+
+    public ArrayList<Carte_Adolescenti> getAllCartiAdolescenti(){
+        ArrayList<Carte_Adolescenti> carti_adolescenti = new ArrayList<>();
+        for (Carte carte : carti) {
+            if (carte instanceof Carte_Adolescenti)
+                carti_adolescenti.add((Carte_Adolescenti) carte);
+        }
+        return carti_adolescenti;
     }
 
 

@@ -1,16 +1,16 @@
-package Carti;
+package Models;
 
-import Utile.Tip_Coperta;
+import Constants.Tip_Coperta;
 
-public class Carte_Adolescenti extends Carte{
+public class Carte_Adolescenti extends Carte {
 
     private Boolean e_science_fiction;
     private Boolean e_romantic;
     private Boolean e_drama;
     private Boolean e_horror;
 
-    public Carte_Adolescenti( int id, String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, Boolean e_science_fiction, Boolean e_romantic, Boolean e_drama, Boolean e_horror) {
-        super(id, titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
+    public Carte_Adolescenti( String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata, Boolean e_science_fiction, Boolean e_romantic, Boolean e_drama, Boolean e_horror) {
+        super( titlu, autor, tip_coperta, nr_pagini, an_aparitie, e_imprumutata);
         this.e_science_fiction = e_science_fiction;
         this.e_romantic = e_romantic;
         this.e_drama = e_drama;

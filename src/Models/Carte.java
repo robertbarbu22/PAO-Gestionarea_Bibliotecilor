@@ -1,9 +1,11 @@
-package Carti;
+package Models;
 
-import Utile.Tip_Coperta;
+import Constants.Tip_Coperta;
 public abstract class Carte implements Comparable<Carte>{
 
     protected int id;
+    protected static int contorId = 100;
+
     protected String titlu;
     protected String autor;
     protected Tip_Coperta tip_coperta;
@@ -11,8 +13,8 @@ public abstract class Carte implements Comparable<Carte>{
     protected int an_aparitie;
     protected Boolean e_imprumutata;
 
-    public Carte (int id, String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata) {
-        this.id = id;
+    public Carte ( String titlu, String autor, Tip_Coperta tip_coperta, int nr_pagini, int an_aparitie, Boolean e_imprumutata) {
+        this.id = contorId ++;
         this.titlu = titlu;
         this.autor = autor;
         this.tip_coperta = tip_coperta;
@@ -20,7 +22,6 @@ public abstract class Carte implements Comparable<Carte>{
         this.an_aparitie = an_aparitie;
         this.e_imprumutata = e_imprumutata;
     }
-
     public int getId() {
         return id;
     }

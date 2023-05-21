@@ -32,6 +32,6 @@ Acesta este un proiect care are ca scop gestionarea mai multor biblioteci, fieca
   - Paznic
 - Cititor
 - Clase tip Enum ( Tip_Coperta, Tura)
-- Biblioteca (Service)
+- Models.Biblioteca (Service)
 - Main
 

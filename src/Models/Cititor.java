@@ -1,7 +1,7 @@
-package Persoane;
+package Models;
 
-import Carti.Carte;
-import java.util.ArrayList;
+import Models.Carte;
+
 public class Cititor {
 
     private String nume;
