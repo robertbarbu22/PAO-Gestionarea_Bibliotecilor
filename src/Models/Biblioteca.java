@@ -12,6 +12,7 @@ import Constants.Tip_Coperta;
 import Models.Bibliotecar;
 import Models.Paznic;
 import Constants.Tura;
+import Service.ServiceAuditCSV;
 
 
 public class Biblioteca {
@@ -72,6 +73,7 @@ public class Biblioteca {
 
     public void add_carte(Carte carte){
         carti.add(carte);
+        ServiceAuditCSV.getInstance().writeToFile("Adaugare carte " + carte.getTitlu() );
     }
 
     public void remove_carte(Carte carte){
@@ -80,6 +82,7 @@ public class Biblioteca {
         } catch (Exception e) {
             System.out.println("Cartea nu exista in biblioteca!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Stergere carte " + carte.getTitlu() );
     }
 
     public void afiseaza_carti(){
@@ -87,6 +90,7 @@ public class Biblioteca {
         for (Carte carte : carti) {
             System.out.println("Titlu: " + carte.getTitlu() );
         }
+        ServiceAuditCSV.getInstance().writeToFile("Afisare carti");
     }
 
     public void cost_inlocuire_carte(Carte carte){
@@ -108,11 +112,13 @@ public class Biblioteca {
             if (ok == 0)
                 System.out.println("Cartea nu exista in biblioteca!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Calculare cost inlocuire carte " + carte.getTitlu() );
 
     }
 
     public void add_angajat(Angajat angajat){
         angajati.add(angajat);
+        ServiceAuditCSV.getInstance().writeToFile("Adaugare angajat " + angajat.getNume() + " " + angajat.getPrenume());
     }
 
     public void remove_angajat(Angajat angajat){
@@ -121,6 +127,7 @@ public class Biblioteca {
         } catch (Exception e) {
             System.out.println("Angajatul nu exista in biblioteca!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Stergere angajat " + angajat.getNume() + " " + angajat.getPrenume());
     }
 
     public void afiseaza_angajati(){
@@ -128,6 +135,7 @@ public class Biblioteca {
         for (Angajat angajat : angajati) {
             System.out.println("Nume: " + angajat.getNume() + " Prenume: " + angajat.getPrenume() + " Functie: " + angajat.getClass().getSimpleName() );
         }
+        ServiceAuditCSV.getInstance().writeToFile("Afisare angajati");
     }
 
     public void calculeaza_salariu_angajat(Angajat angajat){
@@ -151,10 +159,12 @@ public class Biblioteca {
         }
 
         System.out.println("Salariul angajatului " + angajat.getNume()+ " " + angajat.getPrenume() + " este: " + salariu);
+        ServiceAuditCSV.getInstance().writeToFile("Calculare salariu angajat " + angajat.getNume() + " " + angajat.getPrenume());
     }
 
     public void add_cititor(Cititor cititor){
         cititori.add(cititor);
+        ServiceAuditCSV.getInstance().writeToFile("Adaugare cititor " + cititor.getNume() + " " + cititor.getPrenume() );
     }
 
     public void remove_cititor(Cititor cititor){
@@ -163,6 +173,7 @@ public class Biblioteca {
         } catch (Exception e) {
             System.out.println("Cititorul nu exista in biblioteca!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Stergere cititor " + cititor.getNume() + " " + cititor.getPrenume() );
     }
 
     public void afiseaza_cititori(){
@@ -170,6 +181,7 @@ public class Biblioteca {
         for (Cititor cititor : cititori) {
             System.out.println("Nume: " + cititor.getNume() + " Prenume: " + cititor.getPrenume());
         }
+        ServiceAuditCSV.getInstance().writeToFile("Afisare cititori");
     }
 
     public void imprumuta_carte(Cititor cititor, Carte carte) {
@@ -185,6 +197,7 @@ public class Biblioteca {
             cititor.setCarte_imprumutata(carte);
             System.out.println("Cartea a fost imprumutata cu succes!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Imprumutare carte " + carte.getTitlu() + " cititorului " + cititor.getNume() + " " + cititor.getPrenume() );
 
     }
 
@@ -197,6 +210,7 @@ public class Biblioteca {
             cititor.setCarte_imprumutata(null);
             System.out.println("Cartea a fost returnata cu succes!");
         }
+        ServiceAuditCSV.getInstance().writeToFile("Returnare carte " + carte.getTitlu() + " de la cititorul " + cititor.getNume() + " " + cititor.getPrenume() );
 
     }
 
@@ -206,6 +220,7 @@ public class Biblioteca {
         paznic2.setTura(tura);
 
         System.out.println("Paznicul " + paznic.getNume() + " " + paznic.getPrenume() + " are tura " + paznic.getTura() + ", iar paznicul " + paznic2.getNume() + " " + paznic2.getPrenume() + " are tura " + paznic2.getTura());
+        ServiceAuditCSV.getInstance().writeToFile("Schimb de tura intre paznicul " + paznic.getNume() + " " + paznic.getPrenume() + " si paznicul " + paznic2.getNume() + " " + paznic2.getPrenume() );
     }
 
     public void top_3_cititori(){
@@ -220,6 +235,8 @@ public class Biblioteca {
         for (int i = 0; i < 3; i++) {
             System.out.println( cititori.get(i).getNume() + " " + cititori.get(i).getPrenume() + "/ Numar imprumuturi: " + cititori.get(i).getNr_imprumuturi());
         }
+
+        ServiceAuditCSV.getInstance().writeToFile("Afisare top 3 cititori");
     }
 
 
@@ -233,16 +250,10 @@ public class Biblioteca {
 
         System.out.println("Angajatul cu cea mai mare vechime este: ");
         System.out.println( angajati.get(0).getNume() + " " + angajati.get(0).getPrenume() + "/ Ani vechime: " + angajati.get(0).getAni_vechime());
+
+        ServiceAuditCSV.getInstance().writeToFile("Afisare angajat cu cea mai mare vechime");
     }
 
-    public ArrayList<Carte_Adolescenti> getAllCartiAdolescenti(){
-        ArrayList<Carte_Adolescenti> carti_adolescenti = new ArrayList<>();
-        for (Carte carte : carti) {
-            if (carte instanceof Carte_Adolescenti)
-                carti_adolescenti.add((Carte_Adolescenti) carte);
-        }
-        return carti_adolescenti;
-    }
 
 
 }
